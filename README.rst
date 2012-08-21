@@ -7,7 +7,7 @@ The function of the script is such that, you simply need to enter your details a
 
 Use Case : 
   * Create a PTR (Reverse DNS) Record  
-  * Update a PTR (Reverse DNS) Recotd
+  * Update a PTR (Reverse DNS) Record
 
 Application :
   The script can be used with all variables passed on the command line or interactively.
