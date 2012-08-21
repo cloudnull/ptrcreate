@@ -104,5 +104,8 @@ echo -e "\n\nJob Sent, checking for success.\n"
 sleep 10
 curl -s -X GET -H "X-Auth-Token: $APITOKEN" $DNSURL/rdns/cloudServersOpenstack?href=https://$DC.servers.api.rackspacecloud.com/v2/$DDI/servers/$INSTANCEID | python -m json.tool
 
+# Remove Temp File
+rm /tmp/ptrcreateng.json
+
 exit 0 
 
