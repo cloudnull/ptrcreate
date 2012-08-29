@@ -19,4 +19,9 @@ function :
 
    ptrcreate.sh <USERNAME> <APIKEY> <LOCATION> <DATACENTER> <SERVERNAME> <DOMAINNAME>
 
+Want to see it in Action?
+   I have a screen cast will show you how to `build the PTR record`_\.
+
 Shoot me a line if you have any questions.
+
+.. _build the PTR record: http://ascii.io/a/1060
