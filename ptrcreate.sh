@@ -36,10 +36,21 @@ else
 fi
 
 # The Data Center that the Target server exists in 
-DC="$4"
-if [ -z "$DC" ];then
-  read -p "Enter the Datacenter the instance is in : " DC
+PICKDC="$4"
+if [ -z "$PICKDC" ];then
+  read -p "Enter the Datacenter the instance is in : " PICKDC
 fi
+if [ "$PICKDC" == "ord" ] || [ "$PICKDC" == "ORD" ];then
+    DC="ord"
+elif [ "$PICKDC" == "dfw" ] || [ "$PICKDC" == "DFW" ];then
+    DC="dfw"
+elif [ "$PICKDC" == "lon" ] || [ "$PICKDC" == "LON" ];then
+    DC="lon"
+else
+  echo "You have to put in a Valid Cloud Data Center. Opetions are \"ord\", \"dfw\", or \"lon\"."
+  exit 1
+fi
+
 
 # Creating a service list catalog
 SERVICECAT=$(curl -s -X POST ${AUTHURL}/tokens -d " { \"auth\":{ \"RAX-KSKEY:apiKeyCredentials\":{ \"username\":\"${USERNAME}\", \"apiKey\":\"${APIKEY}\" }}}" -H "Content-type: application/json" | python -m json.tool)
@@ -103,9 +114,6 @@ curl -D - -X POST -H "X-Auth-Token: $APITOKEN" "$DNSURL/rdns" -H "Content-type: 
 echo -e "\n\nJob Sent, checking for success.\n"
 sleep 10
 curl -s -X GET -H "X-Auth-Token: $APITOKEN" $DNSURL/rdns/cloudServersOpenstack?href=https://$DC.servers.api.rackspacecloud.com/v2/$DDI/servers/$INSTANCEID | python -m json.tool
-
-# Remove Temp File
-rm /tmp/ptrcreateng.json
 
 exit 0 
 
