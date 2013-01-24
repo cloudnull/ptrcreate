@@ -47,7 +47,7 @@ elif [ "$PICKDC" = "dfw" ] || [ "$PICKDC" = "DFW" ];then
 elif [ "$PICKDC" = "lon" ] || [ "$PICKDC" = "LON" ];then
     DC="lon"
 else
-  echo "You have to put in a Valid Cloud Data Center. Opetions are \"ord\", \"dfw\", or \"lon\"."
+  echo "You have to put in a Valid Cloud Data Center. Options are \"ord\", \"dfw\", or \"lon\"."
   exit 1
 fi
 
