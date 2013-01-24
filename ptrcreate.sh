@@ -26,9 +26,9 @@ LOCAL="$3"
 if [ -z "$3" ];then
   read -p "Enter your Location, (us or uk) : " LOCAL
 fi
-if [ "$LOCAL" == "us" ];then
+if [ "$LOCAL" = "us" ];then
   AUTHURL='https://auth.api.rackspacecloud.com/v2.0'
-elif [ "$LOCAL" == "uk" ];then
+elif [ "$LOCAL" = "uk" ];then
   AUTHURL='https://lon.auth.api.rackspacecloud.com/v2.0'
 else 
   echo "You have to put in a Valid Location, which is \"us\" or \"uk\"."
@@ -40,11 +40,11 @@ PICKDC="$4"
 if [ -z "$PICKDC" ];then
   read -p "Enter the Datacenter the instance is in : " PICKDC
 fi
-if [ "$PICKDC" == "ord" ] || [ "$PICKDC" == "ORD" ];then
+if [ "$PICKDC" = "ord" ] || [ "$PICKDC" = "ORD" ];then
     DC="ord"
-elif [ "$PICKDC" == "dfw" ] || [ "$PICKDC" == "DFW" ];then
+elif [ "$PICKDC" = "dfw" ] || [ "$PICKDC" = "DFW" ];then
     DC="dfw"
-elif [ "$PICKDC" == "lon" ] || [ "$PICKDC" == "LON" ];then
+elif [ "$PICKDC" = "lon" ] || [ "$PICKDC" = "LON" ];then
     DC="lon"
 else
   echo "You have to put in a Valid Cloud Data Center. Opetions are \"ord\", \"dfw\", or \"lon\"."
