@@ -38,7 +38,7 @@ fi
 # The Data Center that the Target server exists in 
 PICKDC="$4"
 if [ -z "$PICKDC" ];then
-  read -p "Enter the Datacenter the instance is in : " PICKDC
+  read -p "Enter the Datacenter the instance is in, (ord, dfw or lon) : " PICKDC
 fi
 if [ "$PICKDC" = "ord" ] || [ "$PICKDC" = "ORD" ];then
     DC="ord"
@@ -100,7 +100,7 @@ echo "
     \"rel\" : \"cloudServersOpenstack\"
   }
 }" > /tmp/ptrcreateng.json && cat /tmp/ptrcreateng.json
-read -p "Here is the proposed PTR Record. If it looks good please press enter to continue."
+read -p "Here is the proposed PTR Record. If it looks good please press enter to continue." nothing
 
 # Deleting any OLD PTR record that could have been created and then adding the new one
 echo -e "\nSending Job\n"
