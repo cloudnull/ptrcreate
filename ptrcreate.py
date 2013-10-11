@@ -65,10 +65,9 @@ def arguments():
                      '--user',
                      metavar='',
                      help='Your Rackspace Username',
-                     required=True,
                      default=os.getenv('OS_USERNAME'))
 
-    key = par.add_mutually_exclusive_group(required=True)
+    key = par.add_mutually_exclusive_group()
     key.add_argument('-P',
                      '--password',
                      metavar='',
@@ -112,6 +111,15 @@ def arguments():
                      action='version',
                      version='PTRCreate %s' % __version__)
     return vars(par.parse_args())
+
+
+def confirm_args(args):
+    if 'user' not in args:
+        raise SystemExit('No Username Specified.')
+    elif not any(['password' in args, 'apikey' in args, 'token' in args]):
+        raise SystemExit('No Credentials Specified.')
+    elif 'region' not in args:
+        raise SystemExit('No Region Specified.')
 
 
 def dict_pop_none(dictionary):
@@ -565,6 +573,7 @@ def executable():
     """Execute the application."""
 
     args = dict_pop_none(arguments())
+    confirm_args(args=args)
     post_auth = authenticate(args)
     payload = prep_payload(post_auth)
     sid = get_servers_id(get_servers(payload=payload, args=args), args)
