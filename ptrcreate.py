@@ -489,7 +489,7 @@ def setup_ptr(ips, args, payload, server_id):
     }
     if args.get('no_confirm') is not True:
         print('Please verify The new Proposed PTR record(s)')
-        print json.dumps(ptr_record, indent=2)
+        print(json.dumps(ptr_record, indent=2))
     return ptr_record
 
 
@@ -550,7 +550,7 @@ def post_new_ptr(args, payload, ptr_record):
     if 'request' in post_request:
         post_request['request'] = json.loads(post_request['request'])
     print('Please verify your new PTR record(s)')
-    print json.dumps(post_request, indent=2)
+    print(json.dumps(post_request, indent=2))
 
 
 def confirm_create(args):
