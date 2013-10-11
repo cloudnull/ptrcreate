@@ -72,3 +72,6 @@ Here are All of the Available Environment Variables:
     OS_REGION="Your Rackspace Region"
     OS_AUTH_URL="Optional Override for the Authentication URL"
     OS_AUTH_VERSION="Optional Rackspace Authentication Version"
+
+
+Want to see the Application in Action? Check out http://asciinema.org/a/5877
