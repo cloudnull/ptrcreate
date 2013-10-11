@@ -10,24 +10,65 @@ Use Case :
   * Update a PTR (Reverse DNS) Record
 
 Application :
-  The script can be used with all variables passed on the command line or interactively.
+  The Script is run with a series of command line arguments.
 
 Function :
-  If the script it run without any variables, the script will prompt for all needed information.
+  The script will query the Rackspace API for your cloud server, build a PTR record from the provided data and set the record for you.
+
+
+Example Command:
+
+
+.. code-block:: bash
+
+    ./ptrcreate.py -U <UserName> -A <Password> -R <Region> -N <ServerName> -D <DomainName>
+
+
+Please run ``ptrcreate.py --help`` for all available options.
+
 
 .. code-block:: bash 
 
-   ptrcreate.sh <USERNAME> <APIKEY> <LOCATION> <DATACENTER> <SERVERNAME> <DOMAINNAME>
-* **USERNAME** Your cloud control login.
-* **APIKEY** Found under account settings api access.
-* **LOCATION** Lowercase country abbreviation your servers are located in. IE: us, uk or hk.
-* **DATACENTER** The region listed in the server details, when you click on it from the server list.
-* **SERVERNAME** Name listed in servers list.
-* **DOMAINNAME** Name you want returned.
+    ptrcreate.py create you a New PTR record for your cloud server.
 
-Want to see it in Action?
-   I have a screen cast will show you how to `build the PTR record`_\.
+    optional arguments:
 
-Shoot me a line if you have any questions.
+    -h, --help           show this help message and exit
 
-.. _build the PTR record: http://ascii.io/a/1060
+    -D , --domain-name   Domain Name for the PTR Record
+    --ttl                TTL of DNS Record
+
+    -N , --server-name   The name of your server
+    -I , --server-id     The ID of your server
+
+    -U , --user          Your Rackspace Username
+    -P , --password      Your Rackspace Password
+    -A , --apikey        Your Rackspace API Key
+    -T , --token         Your Rackspace Token
+    -R , --region        Regions: ['dfw', 'ord', 'iad', 'lon', 'syd']
+
+    --auth-url           Optional Override for the Authentication URL
+    --auth-version       Optional Rackspace Authentication Version
+
+    --debug              Enable Debug Mode
+    --no-confirm         Skip Record Confirmation.
+
+    -V, --version        show program's version number and exit
+
+    GPLv3 Licensed PTR Create Version 2.0.
+
+
+You can also export your Rackspace Credentials into environment variables which can help in automating the creation of PTR Records.
+
+Here are All of the Available Environment Variables:
+
+
+.. code-block:: bash
+
+    OS_USERNAME="Your Rackspace Username"
+    OS_PASSWORD="Your Rackspace Password"
+    OS_APIKEY="Your Rackspace API Key"
+    OS_TOKEN="Your Rackspace Token"
+    OS_REGION="Your Rackspace Region"
+    OS_AUTH_URL="Optional Override for the Authentication URL"
+    OS_AUTH_VERSION="Optional Rackspace Authentication Version"
