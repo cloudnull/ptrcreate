@@ -23,8 +23,9 @@ import urlparse
 
 
 # All available RAX regions.
-__rax_regions__ = ['dfw', 'ord', 'iad', 'lon', 'syd']
+__rax_regions__ = ['dfw', 'ord', 'iad', 'lon', 'syd', 'hk']
 __version__ = 2.0
+
 
 
 def get_help():

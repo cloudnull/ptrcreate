@@ -49,7 +49,7 @@ Please run ``ptrcreate.py --help`` for all available options.
     -P , --password      Your Rackspace Password
     -A , --apikey        Your Rackspace API Key
     -T , --token         Your Rackspace Token
-    -R , --region        Regions: ['dfw', 'ord', 'iad', 'lon', 'syd']
+    -R , --region        Regions: ['dfw', 'ord', 'iad', 'lon', 'syd', 'hk']
 
     --auth-url           Optional Override for the Authentication URL
     --auth-version       Optional Rackspace Authentication Version
