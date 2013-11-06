@@ -23,7 +23,7 @@ import urlparse
 
 
 # All available RAX regions.
-__rax_regions__ = ['dfw', 'ord', 'iad', 'lon', 'syd', 'hk']
+__rax_regions__ = ['dfw', 'ord', 'iad', 'lon', 'syd', 'hkg']
 __version__ = 2.0
 
 
